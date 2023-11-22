@@ -22,7 +22,10 @@
         h1 {
             margin: 0;
             font-size: 2em;
-            color: #b71c1c; /* 暗めの赤色 */
+            /* グラデーションを適用 */
+            background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            -webkit-background-clip: text; /* テキストに背景をクリップ */
+            color: transparent; /* テキスト自体は透明にする */
         }
 
         section {
