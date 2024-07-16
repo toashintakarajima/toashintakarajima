@@ -24,6 +24,9 @@
         h1 {
             margin: 0;
             font-size: 2.5em;
+            background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red, pink, cyan);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         section {
@@ -86,6 +89,14 @@
             border-radius: 5px;
             margin-top: 10px;
         }
+
+        /* Adjust image size */
+        img {
+            max-width: 50%; /* Reduce image size */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Prevents bottom margin issue */
+            margin: 0 auto; /* Center align image */
+        }
     </style>
 </head>
 <body>
@@ -93,12 +104,12 @@
         <h1>新宝島トーアのホームページ</h1>
     </header>
 
- <section id="self-introduction">
-    <h2>自己紹介</h2>
-    <img src="image/F9wcfw3bQAAPP8W.jpg" alt="ファンアートの作者はコルトさん" style="max-width: 5%;">
-    <p>作：コルトさん</p>
-    <p>バーチャルユーチューバー。寿司が好き。</p>
-</section>
+    <section id="self-introduction">
+        <h2>自己紹介</h2>
+        <img src="image/F9wcfw3bQAAPP8W.jpg" alt="ファンアートの作者はコルトさん">
+        <p>作：コルトさん</p>
+        <p>バーチャルユーチューバー。寿司が好き。</p>
+    </section>
 
     <section id="latest-news">
         <h2>定期活動</h2>
