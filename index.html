@@ -1,165 +1,89 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新宝島トーアのホームページ</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-        }
-
-        header {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            border-bottom: 2px solid #666;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-            background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red, pink, cyan);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        section {
-            margin: 20px;
-            padding: 20px;
-            background-color: #eee;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-        }
-
-        h2 {
-            color: #666;
-            border-bottom: 2px solid #666;
-            padding-bottom: 8px;
-            margin-bottom: 16px;
-            font-size: 1.8em;
-        }
-
-        p {
-            color: #000;
-            line-height: 1.6;
-        }
-
-        /* Links style */
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-            border-top: 2px solid #666;
-            font-size: 0.8em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Counter style */
-        #counter {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        #counterBtn {
-            font-size: 1em;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        /* Adjust image size */
-        img {
-            max-width: 50%; /* Reduce image size */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Prevents bottom margin issue */
-            margin: 0 auto; /* Center align image */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>新宝島トーアのホームページ</title>
+  <style>
+    body {
+      font-family: "MS Gothic", sans-serif;
+      background-image: url("https://www.civillink.net/images/tile/tile03.gif");
+      margin: 0;
+      padding: 20px;
+      color: black;
+    }
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+    }
+    .announcement {
+      display: flex;
+      background-color: #ffffffcc;
+      border: 2px ridge gray;
+      padding: 10px;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+    }
+    .announcement img {
+      width: 200px;
+      margin-right: 20px;
+    }
+    .profile, .bbs {
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+      background-color: #ffffffcc;
+      border: 2px ridge gray;
+      padding: 15px;
+    }
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>新宝島トーアのホームページ</h1>
-    </header>
 
-    <section id="self-introduction">
-        <h2>自己紹介</h2>
-        <img src="image/F9wcfw3bQAAPP8W.jpg" alt="ファンアートの作者はコルトさん">
-        <p>作：コルトさん</p>
-        <p>バーチャルユーチューバー。寿司が好き。</p>
-    </section>
+  <h1>新宝島トーアのホームページ</h1>
 
-    <section id="latest-news">
-        <h2>定期活動</h2>
-        <p>・不定期にショート動画を投稿<br>・毎週金曜日に動画を投稿<br>最新情報は毎週火曜22時からの雑談配信にて！ </p>
-    </section>
+  <!-- 告知欄＋立ち絵 -->
+  <div class="announcement">
+    <img src="toa_tachie_resized.png" alt="トーア立ち絵">
+    <div>
+      <h2>最新告知</h2>
+      <p>📢 ショート動画を投稿予定です。</p>
+    </div>
+  </div>
 
-    <section id="latest-announcement">
-        <h2>最新の告知</h2>
-        <p>・3/17　新作動画が投稿されました<br>未定<br>未定 </p>
-    </section>
+  <!-- プロフィール -->
+  <div class="profile">
+    <h2>📜 プロフィール</h2>
+    <p>新天地開拓系VTuber。愛知某所の裕福な家庭で生まれ、幼いころより周囲に愛されて過ごす。学生時代にとある魔術の禁書目録と出会い、その邂逅が彼の人生を大きく変えることとなった。メロンクリームソーダと寿司をこよなく愛する美食家。こんなんでも女の子。</p>
+    <ul>
+      <li><a href="https://www.youtube.com/@SintakarajimaToa" target="_blank">🎥 Youtubeはコチラ</a></li>
+      <li><a href="https://x.com/s_takarajima" target="_blank">🐦 X（旧Twitter）はコチラ</a></li>
+      <li><a href="https://www.instagram.com/toashintakarajima/" target="_blank">📸 Instagramはコチラ</a></li>
+    </ul>
+  </div>
 
-        <section id="latest-announcement">
-        <h2>ここだけのリンク</h2>
-               <ul>
-            <li><a href="https://youtu.be/BshfIuUrYh8" target="_blank">新宝島</a></li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>お問い合わせ</h2>
-        <p>toa.shintakarajima@gmail.com</p>
-    </section>
-
-    <section id="links">
-        <h2>りっとりんく</h2>
-        <ul>
-            <li><a href="https://www.youtube.com/channel/UCrXdSoIyfBmeKPsu0CggugQ" target="_blank">ようつべ</a></li>
-            <li><a href="https://x.com/s_takarajima" target="_blank">ついったー</a></li>
-            <li><a href="https://www.instagram.com/toashintakarajima/" target="_blank">裏垢</a></li>
-            <li><a href="https://marshmallow-qa.com/s_takarajima?t=KkIAVD&utm_medium=url_text&utm_source=promotion" target="_blank">マシュマロ</a></li>
-        </ul>
-    </section>
-
-    <section id="counterSection">
-        <h2>訪問者カウンター（手動）</h2>
-        <div id="counter">0</div>
-        <button id="counterBtn" onclick="incrementCounter()">訪問者カウントアップ</button>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 新宝島トーア</p>
-    </footer>
-
-    <script>
-        let count = 0;
-
-        function incrementCounter() {
-            count++;
-            document.getElementById('counter').innerText = count;
-        }
+  <!-- コメント欄（Giscus） -->
+  <div class="bbs">
+    <h2>📝 BBS（コメントしてね！）</h2>
+    <script src="https://giscus.app/client.js"
+        data-repo="【GitHubユーザー名】/【リポジトリ名】"
+        data-repo-id="【リポジトリID】"
+        data-category="General"
+        data-category-id="【カテゴリID】"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-theme="light"
+        crossorigin="anonymous"
+        async>
     </script>
+  </div>
+
 </body>
 </html>
