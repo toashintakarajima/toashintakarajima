@@ -31,7 +31,7 @@
       width: 200px;
       margin-right: 20px;
     }
-    .profile, .bbs {
+    .profile, .bbs, .collab-box {
       max-width: 700px;
       margin: 0 auto 30px auto;
       background-color: #ffffffcc;
@@ -42,6 +42,35 @@
       color: blue;
       text-decoration: underline;
     }
+    .counter {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .progress-bar-container {
+      width: 100%;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .progress-bar {
+      height: 20px;
+      background: #4caf50;
+      width: 0%;
+      transition: width 0.5s;
+    }
+    .collab-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .collab-list li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #aaa;
+    }
+    .date {
+      color: #666;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -50,7 +79,7 @@
 
   <!-- 告知欄＋立ち絵 -->
   <div class="announcement">
-<img src="image/86303192_p0.png" alt="トーア立ち絵">
+    <img src="image/86303192_p0.png" alt="トーア立ち絵">
     <div>
       <h2>最新告知</h2>
       <p>📢 ショート動画を投稿予定です。</p>
@@ -68,28 +97,31 @@
     </ul>
   </div>
 
-   <p>８月までに２０人とコラボするチャレンジ中です！</p>
-  <!-- カウント表示と進捗バー -->
-<div class="counter">
-  <span id="collab-count">0</span> / 20 人達成！
-</div>
-<div class="progress-bar-container">
-  <div id="progress-bar" class="progress-bar"></div>
-</div>
+  <!-- コラボチャレンジ -->
+  <div class="collab-box">
+    <p>８月までに２０人とコラボするチャレンジ中です</p>
+    <div class="counter">
+      <span id="collab-count">7</span> / 20 人達成！
+    </div>
+    <div class="progress-bar-container">
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+    <div class="collab-list">
+      <h3>💬 これまでのコラボ</h3>
+      <ul>
+        <li>  <span class="date"></span></li>
+        <li>  <span class="date"></span></li>
+        <li> <span class="date"></span></li>
+        <!-- ここにコラボ相手を追加する -->
+      </ul>
+    </div>
+  </div>
 
-<!-- コラボ相手リスト --> 
+  <div class="bbs">
+    <h2>コメントしてね！</h2>
+    <div class="giscus-container"></div>
+  </div>
 
-<h2>💼 コラボした方々</h2>
-<ul>
-  <li>✨  <span class="date"></span></li>
-  ...
-</ul>
-
-
-  <h2>コメントしてね！</h2>
-  <div class="giscus-container"></div>
-
-  <!-- ここにGiscusスクリプトを入れる！ -->
   <script src="https://giscus.app/client.js"
     data-repo="toashintakarajima/toashintakarajima"
     data-repo-id="R_kgDOJ2oLew"
@@ -106,7 +138,14 @@
     async>
   </script>
 
-  </div>
+  <script>
+    const current = 0; // コラボ数をここでカウントする？多分反映される
+    const goal = 20;
+    const progress = (current / goal) * 100;
+
+    document.getElementById("collab-count").textContent = current;
+    document.getElementById("progress-bar").style.width = progress + "%";
+  </script>
 
 </body>
 </html>
