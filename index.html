@@ -139,14 +139,23 @@
   </script>
 
   <script>
-    const current = 0; // コラボ数をここでカウントする？多分反映される
-    const goal = 20;
-    const progress = (current / goal) * 100;
+  // コラボリストから <li> 要素を取得
+  const listItems = document.querySelectorAll('.collab-list ul li');
 
-    document.getElementById("collab-count").textContent = current;
-    document.getElementById("progress-bar").style.width = progress + "%";
-  </script>
+  // 中身が空でない行だけカウント（名前と日付があるやつ）
+  const validCollabs = Array.from(listItems).filter(li => {
+    const date = li.querySelector('.date')?.textContent.trim();
+    const link = li.querySelector('a')?.textContent.trim();
+    return date && link;
+  });
 
+  const current = validCollabs.length;
+  const goal = 20;
+  const progress = (current / goal) * 100;
+
+  document.getElementById("collab-count").textContent = current;
+  document.getElementById("progress-bar").style.width = progress + "%";
+</script>
   <div style="text-align:center;">
   <img src="image/おどるーぷ.gif" alt="踊るとーあ" width="300">
 </div>
