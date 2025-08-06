@@ -101,7 +101,7 @@
   <div class="collab-box">
     <p>８月３１日までに２０人とコラボするチャレンジ中です</p>
     <div class="counter">
-      <span id="collab-count">7</span> / 20 人達成！
+      <span id="collab-count">0</span> / 20 人達成！
     </div>
     <div class="progress-bar-container">
       <div id="progress-bar" class="progress-bar"></div>
@@ -109,9 +109,9 @@
     <div class="collab-list">
       <h3>💬 これまでのコラボ</h3>
       <ul>
-        <li><span class="date">7/14</span> <a href="https://www.youtube.com/live/gqv4exMT5JY" target="_blank">結城クロ</a></li>
-        <li><span class="date">7/26</span> <a href="https://youtube.com/live/w6CZQkpSGzk?feature=share" target="_blank">七星あかりほか４名</a></li>
-        <li> <span class="date"></span></li>
+        <!-- data-count に人数を書く。省略時は 1 -->
+        <li data-count="1"><span class="date">7/14</span> <a href="https://www.youtube.com/live/gqv4exMT5JY" target="_blank">結城クロ</a></li>
+        <li data-count="5"><span class="date">7/26</span> <a href="https://youtube.com/live/w6CZQkpSGzk?feature=share" target="_blank">七星あかりほか４名</a></li>
         <!-- ここにコラボ相手を追加する -->
       </ul>
     </div>
@@ -135,31 +135,27 @@
     data-theme="preferred_color_scheme"
     data-lang="ja"
     crossorigin="anonymous"
-    async>
-  </script>
+    async></script>
 
   <script>
-  // コラボリストから <li> 要素を取得
+  // 人数を合計して進捗計算
   const listItems = document.querySelectorAll('.collab-list ul li');
-
-  // 中身が空でない行だけカウント（名前と日付があるやつ）
-  const validCollabs = Array.from(listItems).filter(li => {
-    const date = li.querySelector('.date')?.textContent.trim();
-    const link = li.querySelector('a')?.textContent.trim();
-    return date && link;
+  let current = 0;
+  listItems.forEach(li => {
+    const cnt = parseInt(li.dataset.count || '1', 10);
+    current += cnt;
   });
 
-  const current = validCollabs.length;
   const goal = 20;
   const progress = (current / goal) * 100;
 
-  document.getElementById("collab-count").textContent = current;
-  document.getElementById("progress-bar").style.width = progress + "%";
+  document.getElementById('collab-count').textContent = current;
+  document.getElementById('progress-bar').style.width = progress + '%';
 </script>
-  <div style="text-align:center;">
-  <img src="image/おどるーぷ.gif" alt="踊るとーあ" width="300">
-</div>
 
+  <div style="text-align:center;">
+    <img src="image/おどるーぷ.gif" alt="踊るとーあ" width="300">
+  </div>
 
 </body>
 </html>
