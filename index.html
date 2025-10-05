@@ -31,7 +31,7 @@
       width: 200px;
       margin-right: 20px;
     }
-    .profile, .bbs, .collab-box {
+    .profile, .bbs {
       max-width: 700px;
       margin: 0 auto 30px auto;
       background-color: #ffffffcc;
@@ -42,35 +42,24 @@
       color: blue;
       text-decoration: underline;
     }
-    .counter {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    /* ちょい可愛いボタン風リンク（マシュマロ用） */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-top: 10px;
     }
-    .progress-bar-container {
-      width: 100%;
-      background: #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 1rem;
+    .btn {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid #888;
+      background: #fff;
+      text-decoration: none;
+      color: #000;
+      border-radius: 4px;
+      box-shadow: 0 1px 0 #bbb;
     }
-    .progress-bar {
-      height: 20px;
-      background: #4caf50;
-      width: 0%;
-      transition: width 0.5s;
-    }
-    .collab-list ul {
-      list-style: none;
-      padding: 0;
-    }
-    .collab-list li {
-      padding: 0.3rem 0;
-      border-bottom: 1px solid #aaa;
-    }
-    .date {
-      color: #666;
-      font-size: 0.9rem;
-    }
+    .btn:hover { filter: brightness(0.95); }
   </style>
 </head>
 <body>
@@ -90,43 +79,24 @@
   <div class="profile">
     <h2>📜 プロフィール</h2>
     <p>新天地開拓系VTuber。愛知某所の裕福な家庭で生まれ、幼いころより周囲に愛されて過ごす。学生時代にとある魔術の禁書目録と出会い、その邂逅が彼の人生を大きく変えることとなった。</p>
-    <ul>
-      <li><a href="https://www.youtube.com/@SintakarajimaToa" target="_blank">Youtube</a></li>
-      <li><a href="https://x.com/s_takarajima" target="_blank"> X（旧Twitter）</a></li>
-      <li><a href="https://www.instagram.com/toashintakarajima/" target="_blank"> Instagram</a></li>
-    </ul>
-  </div>
 
-  <!-- コラボチャレンジ -->
-  <div class="collab-box">
-    <p>８月３１日までに２０人とコラボするチャレンジ中です</p>
-    <div class="counter">
-      <span id="collab-count">0</span> / 20 人達成！
-    </div>
-    <div class="progress-bar-container">
-      <div id="progress-bar" class="progress-bar"></div>
-    </div>
-    <div class="collab-list">
-      <h3>💬 これまでのコラボ</h3>
-      <ul>
-        <!-- data-count に人数を書く。省略時は 1 -->
-        <li data-count="1"><span class="date">7/14</span> <a href="https://www.youtube.com/live/gqv4exMT5JY" target="_blank">結城クロ</a></li>
-        <li data-count="5"><span class="date">7/26</span> <a href="https://youtube.com/live/w6CZQkpSGzk?feature=share" target="_blank">七星あかりほか４名</a></li>
-        <li data-count="1"><span class="date">8/1</span> <a href="https://youtu.be/wxq3Ri52qR0" target="_blank">夕星つむぎきゅん</a></li>
-        <li data-count="1"><span class="date">8/24</span> <a href="https://www.youtube.com/watch?v=2F1HIWdIE38">Anちゃん</a></li>
-        <li data-count="103"><span class="date">9/9</span> <a href="https://vrchat.com/home/launch?worldId=wrld_b1524b13-cf9a-4c4a-afdd-2df87fb91de8&instanceId=67975~region(us)">サブ太郎さん他103名</a></li>
-
-
-        <!-- ここにコラボ相手を追加する -->
-      </ul>
+    <!-- SNS/リンク -->
+    <div class="links">
+      <a class="btn" href="https://www.youtube.com/@SintakarajimaToa" target="_blank">YouTube</a>
+      <a class="btn" href="https://x.com/s_takarajima" target="_blank">X（旧Twitter）</a>
+      <a class="btn" href="https://www.instagram.com/toashintakarajima/" target="_blank">Instagram</a>
+      <a class="btn" href="https://marshmallow-qa.com/s_takarajima#new_message" target="_blank">マシュマロに投げる</a>
     </div>
   </div>
+
+  <!-- （コラボチャレンジは削除） -->
 
   <div class="bbs">
     <h2>コメントしてね！</h2>
     <div class="giscus-container"></div>
   </div>
 
+  <!-- giscus（コメント） -->
   <script src="https://giscus.app/client.js"
     data-repo="toashintakarajima/toashintakarajima"
     data-repo-id="R_kgDOJ2oLew"
@@ -141,22 +111,6 @@
     data-lang="ja"
     crossorigin="anonymous"
     async></script>
-
-  <script>
-  // 人数を合計して進捗計算
-  const listItems = document.querySelectorAll('.collab-list ul li');
-  let current = 0;
-  listItems.forEach(li => {
-    const cnt = parseInt(li.dataset.count || '1', 10);
-    current += cnt;
-  });
-
-  const goal = 20;
-  const progress = (current / goal) * 100;
-
-  document.getElementById('collab-count').textContent = current;
-  document.getElementById('progress-bar').style.width = progress + '%';
-</script>
 
   <div style="text-align:center;">
     <img src="image/おどるーぷ.gif" alt="踊るとーあ" width="300">
